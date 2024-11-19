@@ -3,17 +3,20 @@
     {
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
-      "publication_year": 1925
+      "price": 10.99,
+      "url": "https://m.media-amazon.com/images/I/81QuEGw8VPL._AC_UF894,1000_QL80_.jpg"
     },
     {
       "title": "To Kill a Mockingbird",
       "author": "Harper Lee",
-      "publication_year": 1960
+      "price": 8.99,
+      "url": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg"
     },
     {
       "title": "1984",
       "author": "George Orwell",
-      "publication_year": 1949
+      "price": 9.99,
+      "url": "https://m.media-amazon.com/images/I/81YxjLkcAdL._UF1000,1000_QL80_.jpg"
     }
   ]
 }

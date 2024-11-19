@@ -1,7 +1,7 @@
-import SearchBar from "./SearchBar.js";
-import BookList from "./BookList.js";
+import SearchBar from "./components/SearchBar.js";
+import BookList from "./components/BookList.js";
 import React, {useEffect, useState} from 'react';
-import FavouriteList from "./FavouriteList.js";
+import FavouriteList from "./components/FavouriteList.js";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -25,7 +25,8 @@ const App = () => {
   );
 
   const handleAddToFavourites = (book) => {
-    setFavourites([...favourites, book]);
+    if(!favourites.some((favourite) => favourite.title == book.title)){
+    setFavourites([...favourites, book]);}
   };
 
   useEffect (() => {
@@ -50,16 +51,13 @@ if(savedFavourites){
 
   return (
     <div>
-      <h1>Hello world</h1>
+      <h1>Book shop</h1>
       
       <div>
         <SearchBar handleSearch={handleSearch}  />
-        <BookList books = {filteredBooks} handleAddToFavourites={handleAddToFavourites}/>
+        <BookList books = {filteredBooks} handleAddToFavourites={handleAddToFavourites} favourites={favourites}/>
         <FavouriteList favourites = {favourites} handleClearFavourites={handleClearFavourites}/>
       </div>
-      <div>
-      </div>
-
 
     </div>
   );
