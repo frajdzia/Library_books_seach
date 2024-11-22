@@ -1,12 +1,15 @@
 import SearchBar from "./components/SearchBar.js";
 import BookList from "./components/BookList.js";
+import Cart from "./components/Cart.js";
 import React, {useEffect, useState} from 'react';
 import FavouriteList from "./components/FavouriteList.js";
+import './App.css';
 
 const App = () => {
   const [books, setBooks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [favourites, setFavourites] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect (() =>{
     //fetch data from books.json
@@ -50,15 +53,19 @@ if(savedFavourites){
   });
 
   return (
-    <div>
-      <h1>Book shop</h1>
-      
-      <div>
-        <SearchBar handleSearch={handleSearch}  />
-        <BookList books = {filteredBooks} handleAddToFavourites={handleAddToFavourites} favourites={favourites}/>
-        <FavouriteList favourites = {favourites} handleClearFavourites={handleClearFavourites}/>
+    <div className = "app">
+      <div className = "searchbar-container">
+        <SearchBar handleSearch={handleSearch} />
       </div>
-
+      <div className = "main-container">
+        <div className = "left-section">
+          <FavouriteList favourites={favourites} handleClearFavourites={handleClearFavourites}/>
+          <BookList books={filteredBooks} handleAddToFavourites={handleAddToFavourites} favourites={favourites} />
+        </div>
+        <div className = "right-section">
+          <Cart cartItems={cartItems} setCartItems={setCartItems} />
+        </div>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ const FavouriteList = ({favourites, handleClearFavourites}) => {
                 <button onClick = {handleClearFavourites}>Erase Favourite List</button>
                 
             </h2>
-            <div>
+            <div className = "card-container">
                 {favourites.map((book)=> (
                     <Card key={book.title} book = {book}/>
                 ))}

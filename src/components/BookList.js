@@ -10,12 +10,12 @@ const BookList = ({books, handleAddToFavourites, favourites}) => {
     return(
         <>
         <h2>Book List</h2>
-        <div>
+        <div className='card-container'>
             {books.map((book)=>{
                 const isFavourite = favourites.some((favourite) => favourite.title == book.title);
                 return(
-                    <div key={book.title}>
-                        <div draggable onDragStart={(e) => handleDragStart(e, book)}>
+                    <div key={book.title} className='book-item'>
+                        <div draggable onDragStart={(e) => handleDragStart(e, book)} className = "drag-handle">
                         <Card book={book} />
                         </div>
                         <button onClick ={()=> handleAddToFavourites(book)} disabled={isFavourite}>
